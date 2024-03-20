@@ -1,3 +1,20 @@
+# OS generated files
+._*
+._DS_Store
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+System Volume Information/
+RECYCLER/
+Recycler/
+Recycled/
+Recycle.Bin/
+Recycle/
+$Recycle.Bin/
+
+
 # data
 dist/
 WikibreezeData/
