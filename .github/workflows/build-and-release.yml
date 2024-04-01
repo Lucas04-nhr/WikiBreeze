@@ -45,7 +45,7 @@ jobs:
           cp -r ./Wikibreeze ./WikiBreeze-linux-${{ env.TAG }}
           rm ./Wikibreeze/WikiBreeze        
         
-      - name: Build backend for macos         
+      - name: Build backend for macOS         
         run: |
           env GOOS=darwin GOARCH=amd64 npm run build:backend
           mkdir ./WikiBreeze-macos-${{ env.TAG }}
