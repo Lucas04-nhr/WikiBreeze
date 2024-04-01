@@ -15,7 +15,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@latest
+      - uses: actions/checkout@main
       
       # - uses: actions-ecosystem/action-get-latest-tag@v1
       #   id: get-latest-tag
@@ -24,12 +24,12 @@ jobs:
         run: echo ${{ env.TAG }}
 
       - name: Set up Node.js
-        uses: actions/setup-node@latest
+        uses: actions/setup-node@main
         with:
           node-version: '16'
           
       - name: Setup Go
-        uses: actions/setup-go@latest
+        uses: actions/setup-go@main
         with:
           go-version: 1.19
           
@@ -61,19 +61,19 @@ jobs:
           rm ./Wikibreeze/WikiBreeze.exe
         
       - name: Upload Linux zip
-        uses: actions/upload-artifact@latest
+        uses: actions/upload-artifact@main
         with:
           name: WikiBreeze-linux-${{ env.TAG }}-${{ env.DATE }}
           path: ./WikiBreeze-linux-${{ env.TAG }}-${{ env.DATE }} 
 
       - name: Upload MacOS zip  
-        uses: actions/upload-artifact@latest
+        uses: actions/upload-artifact@main
         with:
           name: WikiBreeze-macos-${{ env.TAG }}-${{ env.DATE }}
           path: ./WikiBreeze-macos-${{ env.TAG }}-${{ env.DATE }}
 
       - name: Upload Windows zip
-        uses: actions/upload-artifact@latest
+        uses: actions/upload-artifact@main
         with:
           name: WikiBreeze-windows-${{ env.TAG }}-${{ env.DATE }}
           path: ./WikiBreeze-windows-${{ env.TAG }}-${{ env.DATE }}
