@@ -42,8 +42,8 @@ jobs:
       - name: Build backend for linux         
         run: |
           env GOOS=linux GOARCH=amd64 npm run build:backend 
-          mkdir ./WikiBreeze-linux-${{ env.TAG }}-${{ env.DATE }}
-          cp -r ./Wikibreeze ./WikiBreeze-linux-${{ env.TAG }}-${{ env.DATE }}
+          mkdir ./WikiBreeze-linux-${{ env.TAG }}
+          cp -r ./Wikibreeze ./WikiBreeze-linux-${{ env.TAG }}
           rm ./Wikibreeze/WikiBreeze        
         
       - name: Build backend for macos         
@@ -63,8 +63,8 @@ jobs:
       - name: Upload Linux zip
         uses: actions/upload-artifact@main
         with:
-          name: WikiBreeze-linux-${{ env.TAG }}-${{ env.DATE }}
-          path: ./WikiBreeze-linux-${{ env.TAG }}-${{ env.DATE }} 
+          name: WikiBreeze-linux-${{ env.TAG }}
+          path: ./WikiBreeze-linux-${{ env.TAG }}
 
       - name: Upload MacOS zip  
         uses: actions/upload-artifact@main
