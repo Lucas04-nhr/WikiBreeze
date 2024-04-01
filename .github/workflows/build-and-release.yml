@@ -10,7 +10,6 @@ on:
   workflow_dispatch:
 env:
   TAG: ${{ github.run_number }}
-  DATE: ${{ format(github.event.head_commit.timestamp, 'yyyyMMdd_HHmmss') }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -42,41 +41,41 @@ jobs:
       - name: Build backend for linux         
         run: |
           env GOOS=linux GOARCH=amd64 npm run build:backend 
-          mkdir ./WikiBreeze-linux-${{ env.TAG }}-${{ env.DATE }}
-          cp -r ./Wikibreeze ./WikiBreeze-linux-${{ env.TAG }}-${{ env.DATE }}
+          mkdir ./WikiBreeze-linux-${{ env.TAG }}
+          cp -r ./Wikibreeze ./WikiBreeze-linux-${{ env.TAG }}
           rm ./Wikibreeze/WikiBreeze        
         
       - name: Build backend for macos         
         run: |
           env GOOS=darwin GOARCH=amd64 npm run build:backend
-          mkdir ./WikiBreeze-macos-${{ env.TAG }}-${{ env.DATE }}
-          cp -r ./Wikibreeze ./WikiBreeze-macos-${{ env.TAG }}-${{ env.DATE }}
+          mkdir ./WikiBreeze-macos-${{ env.TAG }}
+          cp -r ./Wikibreeze ./WikiBreeze-macos-${{ env.TAG }}
           rm ./Wikibreeze/WikiBreeze
         
       - name: Build backend for Windows         
         run: |
           env GOOS=windows GOARCH=amd64 npm run build:backend
-          mkdir ./WikiBreeze-windows-${{ env.TAG }}-${{ env.DATE }}
-          cp -r ./Wikibreeze ./WikiBreeze-windows-${{ env.TAG }}-${{ env.DATE }}
+          mkdir ./WikiBreeze-windows-${{ env.TAG }}
+          cp -r ./Wikibreeze ./WikiBreeze-windows-${{ env.TAG }}
           rm ./Wikibreeze/WikiBreeze.exe
         
       - name: Upload Linux zip
         uses: actions/upload-artifact@main
         with:
-          name: WikiBreeze-linux-${{ env.TAG }}-${{ env.DATE }}
-          path: ./WikiBreeze-linux-${{ env.TAG }}-${{ env.DATE }} 
+          name: WikiBreeze-linux-${{ env.TAG }}
+          path: ./WikiBreeze-linux-${{ env.TAG }} 
 
       - name: Upload MacOS zip  
         uses: actions/upload-artifact@main
         with:
-          name: WikiBreeze-macos-${{ env.TAG }}-${{ env.DATE }}
-          path: ./WikiBreeze-macos-${{ env.TAG }}-${{ env.DATE }}
+          name: WikiBreeze-macos-${{ env.TAG }}
+          path: ./WikiBreeze-macos-${{ env.TAG }}
 
       - name: Upload Windows zip
         uses: actions/upload-artifact@main
         with:
-          name: WikiBreeze-windows-${{ env.TAG }}-${{ env.DATE }}
-          path: ./WikiBreeze-windows-${{ env.TAG }}-${{ env.DATE }}
+          name: WikiBreeze-windows-${{ env.TAG }}
+          path: ./WikiBreeze-windows-${{ env.TAG }}
 
 
             
